@@ -9,6 +9,5 @@ def solution(x_success: int,
              y_success: int, 
              y_cnt: int) -> bool:
     alpha=0.02
-    _, p_value = proportions_ztest([x_success, y_success], [x_cnt, y_cnt])
-    res = (p_value < alpha)
-    return res
+    _, p_value = proportions_ztest([x_success, y_success], [x_cnt, y_cnt], alternative = 'smaller')
+    return p_value < alpha
